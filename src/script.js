@@ -86,6 +86,32 @@ const closeModal = (e) => {
     modal.style.display = "none";
 }
 
+const sendWeight = () => {
+    let weight = parseInt(
+        document.querySelector("#weight").value
+    )
+    let day = document.querySelector("#day").value;
+
+    weights.weights.push({
+        day: new Date(day).toISOString().split("T")[0],
+        weight: weight
+    });
+
+    // In case the user inputs a date in the past
+    weights.weights.sort(function(a, b) {
+        return new Date(a.day) - new Date(b.day);
+    });
+
+    if (weight) {
+        localStorage.setItem("weights", JSON.stringify(weights));
+        closeModal();
+        // When new data is inserted, the chart
+        // must be manually reloaded
+        lineChart.update("reset");
+        lineChart.update("show");
+    }
+}
+
 const updateLatestWeighIn = () => {
     const latestDay = document.querySelector("#latest-day");
     const latestWeight = document.querySelector("#latest-weight");
@@ -102,4 +128,8 @@ document.querySelector("#btn").addEventListener(
 blocker.addEventListener(
     "click",
     closeModal
+);
+document.querySelector("#confirm").addEventListener(
+    "click",
+    sendWeight
 );
