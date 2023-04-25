@@ -17,6 +17,73 @@ body {
     background-color: #9AA6A2;
 }
 
+#blocker {
+    display: none;
+    width: 20rem;
+    height: 40rem;
+    z-index: 1;
+    position: absolute;
+    border-radius: 3rem;
+
+    background: rgba(136, 136, 136, 0.239);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(136, 136, 136, 0.3);
+}
+
+#modal {
+    z-index: 2;
+    background-color: #f4f4f4;
+    position: absolute;
+    gap: 1.2rem;
+    top: 30%;
+    width: 17.4rem;
+    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e2e2;
+    display: none;
+}
+
+#modal > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+#modal > div > label  {
+    font-size: 0.9rem;
+    color: #535960;
+}
+
+#modal > h3 {
+    text-align: center;
+}
+
+#modal input,
+#modal button {
+    height: 2.5rem;
+}
+
+#modal input {
+    padding: 0 0.8rem;
+    border: 1px solid #d4d9d6;
+}
+
+#modal button {
+    color: #A9FFCB;
+    background-color: #09B57A;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #A9FFCB;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin: auto;
+    font-weight: bold;
+
+}
+
 #app {
     width: 20rem;
     height: 40rem;

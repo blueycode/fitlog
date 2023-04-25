@@ -24,6 +24,9 @@ let weights = {
     ]
 };
 
+const blocker = document.querySelector("#blocker");
+const modal = document.querySelector("#modal");
+
 window.addEventListener("load", () => {
     const ctx = document.querySelector("#chart");
 
@@ -75,3 +78,30 @@ window.addEventListener("load", () => {
         }
     });
 });
+
+const openModal = (e) => {
+    blocker.style.display = "block";
+    modal.style.display = "flex";
+
+    anime({
+        targets: modal,
+        duration: 500,
+        translateY: [50, 0],
+        opacity: [0, 1],
+        easing: "easeOutElastic(2, .6)"
+    });
+}
+
+const closeModal = (e) => {
+    blocker.style.display = "none";
+    modal.style.display = "none";
+}
+
+document.querySelector("#btn").addEventListener(
+    "click",
+    openModal
+);
+blocker.addEventListener(
+    "click",
+    closeModal
+);
