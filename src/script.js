@@ -109,6 +109,7 @@ const sendWeight = () => {
         // must be manually reloaded
         lineChart.update("reset");
         lineChart.update("show");
+        updateLatestWeighIn();
     }
 }
 
